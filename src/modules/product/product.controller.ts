@@ -16,6 +16,11 @@ export class ProductController {
         return this.productService.create(companyData);
     }
 
+    @Get(':companyId')
+    findAll(@Param('companyId') companyId: string) {
+        return this.productService.findAll(companyId);
+    }
+
     @Get(':companyId/:id')
     findOne(@Param('companyId') companyId: string, @Param('id') id: string) {
         return this.productService.findOne(companyId, id);
