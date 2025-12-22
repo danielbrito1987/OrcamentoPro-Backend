@@ -10,9 +10,11 @@ export class AuthController {
     async login(@Body() req: LoginDto) {
         // Aqui você deve validar o usuário manualmente ou usar o LocalAuthGuard
         const user = await this.authService.validateUser(req.username, req.password);
+        
         if (!user) {
             throw new Error('Unauthorized');
         }
+        
         return this.authService.login(user);
     }
 }

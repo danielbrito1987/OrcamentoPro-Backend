@@ -10,8 +10,6 @@ export class CompanyController {
     constructor(private companyService: CompanyService) { }
 
     @Post()
-    @ApiBearerAuth('token')
-    @UseGuards(JwtAuthGuard)
     create(@Body() companyData: CreateCompanyDto) {
         return this.companyService.create(companyData);
     }

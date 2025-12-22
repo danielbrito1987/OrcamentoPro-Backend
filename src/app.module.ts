@@ -3,6 +3,10 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { CompanyController } from './modules/company/company.controller';
+import { CompanyService } from './modules/company/company.service';
+import { CompanyModule } from './modules/company/company.module';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
@@ -17,7 +21,11 @@ import { ConfigModule } from '@nestjs/config';
       autoLoadEntities: true,
       synchronize: false, // ⚠️ bom só para desenvolvimento!
       ssl: false,
+      entities: [__dirname + '/models/**/*.entity{.ts,.js}'],
+      migrations: [__dirname + '/migrations/*{.ts,.js}'],
     }),
+    AuthModule,
+    CompanyModule
   ],
   controllers: [AppController],
   providers: [AppService],
