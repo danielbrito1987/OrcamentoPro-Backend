@@ -17,7 +17,14 @@ export class Product {
     @Column({ type: 'varchar', length: 150 })
     description: string;
 
-    @Column('decimal', { precision: 10, scale: 2 })
+    @Column('decimal', {
+        precision: 10,
+        scale: 2,
+        transformer: {
+            to: (value: number) => value,
+            from: (value: string) => Number(value),
+        },
+    })
     value: number;
 
     @Column({ type: 'varchar', length: 10 })
