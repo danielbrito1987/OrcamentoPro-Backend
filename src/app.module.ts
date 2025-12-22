@@ -7,6 +7,7 @@ import { CompanyController } from './modules/company/company.controller';
 import { CompanyService } from './modules/company/company.service';
 import { CompanyModule } from './modules/company/company.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { ProductModule } from './modules/product/product.module';
 
 @Module({
   imports: [
@@ -25,7 +26,8 @@ import { AuthModule } from './modules/auth/auth.module';
       migrations: [__dirname + '/migrations/*{.ts,.js}'],
     }),
     AuthModule,
-    CompanyModule
+    CompanyModule,
+    ProductModule
   ],
   controllers: [AppController],
   providers: [AppService],
