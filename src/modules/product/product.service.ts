@@ -13,7 +13,7 @@ export class ProductService {
     ) { }
 
     async findAll(companyId: string): Promise<Product[]> {
-        return this.productRepository.find({ where: { companyId } });
+        return await this.productRepository.find({ where: { companyId } });
     }
 
     async findOne(companyId: string, id: string): Promise<Product | null> {
