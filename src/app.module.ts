@@ -8,6 +8,7 @@ import { CompanyService } from './modules/company/company.service';
 import { CompanyModule } from './modules/company/company.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { ProductModule } from './modules/product/product.module';
+import { BudgetModule } from './modules/budget/budget.module';
 
 @Module({
   imports: [
@@ -27,7 +28,8 @@ import { ProductModule } from './modules/product/product.module';
     }),
     AuthModule,
     CompanyModule,
-    ProductModule
+    ProductModule,
+    BudgetModule,
   ],
   controllers: [AppController],
   providers: [AppService],
