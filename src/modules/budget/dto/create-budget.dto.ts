@@ -1,5 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { IsNotEmpty, IsString } from "class-validator";
+import { CreateBudgetItemsDto } from "./create-budget-items.dto";
 
 export class CreateBudgetDto {
     @ApiProperty({ description: 'ID da Empresa' })
@@ -35,4 +36,7 @@ export class CreateBudgetDto {
     @ApiProperty({ description: 'Observações' })
     @IsString()
     notes: string;
+
+    @ApiProperty({ description: 'Itens' })
+    items: CreateBudgetItemsDto[]
 }

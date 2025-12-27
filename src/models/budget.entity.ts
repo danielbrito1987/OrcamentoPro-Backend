@@ -1,4 +1,5 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { BudgetItem } from "./budget-item.entity";
 
 @Entity('budget')
 export class Budget {
@@ -28,6 +29,11 @@ export class Budget {
 
     @Column({ nullable: true })
     notes: string;
+
+    @OneToMany(() => BudgetItem, item => item.budget, {
+        cascade: true, // salva itens junto com o orçamento
+    })
+    items: BudgetItem[];
 
     @CreateDateColumn({ type: 'datetime' })
     createdAt: Date;

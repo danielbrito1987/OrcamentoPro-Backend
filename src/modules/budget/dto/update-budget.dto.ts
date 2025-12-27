@@ -1,5 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { IsNotEmpty, IsString } from "class-validator";
+import { UpdateBudgetItemsDto } from "./update-budget-items.dto";
 
 export class UpdateBudgetDto {
     @ApiProperty({ description: 'Nome do Cliente' })
@@ -30,4 +31,7 @@ export class UpdateBudgetDto {
     @ApiProperty({ description: 'Observações' })
     @IsString()
     notes: string;
+
+    @ApiProperty({ description: 'Itens' })
+    items: UpdateBudgetItemsDto[];
 }
